@@ -1,0 +1,38 @@
+{
+  "name": "notas_back",
+  "version": "1.0.0",
+  "description": "Backend de la aplicación de notas",
+  "main": "index.js",
+  "type": "module",
+  "scripts": {
+    "dev": "nodemon ./src/app.js",
+    "start": "node ./src/app.js",
+    "test": "set NODE_OPTIONS=--experimental-vm-modules && npx jest"
+  },
+  "keywords": [
+    "Notas",
+    "bloc de notas",
+    "Tyrone Valverde Soriano",
+    "Tyrone Valverde",
+    "notepad"
+  ],
+  "author": "Tyrone Valverde Soriano",
+  "license": "ISC",
+  "dependencies": {
+    "bcrypt": "5.1.1",
+    "cookie-parser": "^1.4.6",
+    "cors": "2.8.5",
+    "dotenv": "16.3.1",
+    "express": "4.18.2",
+    "jsonwebtoken": "9.0.2",
+    "mongoose": "^7.6.3"
+  },
+  "engines": {
+    "node": "16.x"
+  },
+  "devDependencies": {
+    "jest": "^29.7.0",
+    "nodemon": "^3.0.1",
+    "supertest": "^6.3.3"
+  }
+}
