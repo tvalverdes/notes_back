@@ -1,13 +1,10 @@
 import { Router } from 'express'
+import { login, registerUser, logout } from '../controllers/auth.controller.js'
 import {
-  login,
-  registerUser,
-  getUsers,
-  logout,
-} from '../controllers/auth.controller.js'
+  registerLimiter,
+  loginLimiter,
+} from '../middlewares/rateLimit.middleware.js'
 export const authRouter = Router()
-authRouter.get('/login', (req, res) => res.send('Hello World!'))
-authRouter.post('/login', login)
-authRouter.post('/register', registerUser)
-authRouter.get('/users', getUsers)
+authRouter.post('/login', loginLimiter, login)
+authRouter.post('/register', registerLimiter, registerUser)
 authRouter.get('/logout', logout)

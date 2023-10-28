@@ -6,8 +6,9 @@ import {
   getNotes,
   updateNote,
 } from '../controllers/notes.controller.js'
+import { noteLimiter } from '../middlewares/rateLimit.middleware.js'
 export const noteRouter = Router()
 noteRouter.get('/notes', isUserAuthenticated, getNotes)
-noteRouter.post('/note', isUserAuthenticated, createNote)
+noteRouter.post('/note', noteLimiter, isUserAuthenticated, createNote)
 noteRouter.put('/note', isUserAuthenticated, updateNote)
 noteRouter.put('/delete/note', isUserAuthenticated, deleteNote)
