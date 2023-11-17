@@ -31,6 +31,8 @@ export const getUsers = async (req, res) => {
 export const login = async (req, res) => {
   try {
     const { email, password } = req.body
+    if (!email || !password)
+      return res.status(400).json({ message: 'Missing credentials' })
     const user = await User.findOne({ email: email.toLowerCase() })
     if (!user) return res.status(404).json({ message: 'Wrong credentials' })
     const isMatch = await comparePassword(password, user.password)
